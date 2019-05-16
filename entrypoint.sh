@@ -6,14 +6,9 @@ else
     echo "Please specify a valid username and password with -e USERNAME and -e PASSWORD. Aborting."
     exit 1
 fi
-if [[ "$MEGACMD" == "" ]]; then
-	echo "Please specify a valid -e MEGACMD command"
+if [[ "$*" == "" ]]; then
+	echo "Please specify a valid megacli command"
     	exit 1
 fi
-if [ -d /upload ]; then
-	$MEGACMD /upload $TARGET
-else
-    echo "Please mount the dir that you want to upload to /upload and set \$TARGET to remote dir. Aborting."
-    exit 1
-fi
-/bin/bash $@
+
+sh -c "mega-$*"
