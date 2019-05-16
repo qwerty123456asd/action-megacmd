@@ -19,7 +19,6 @@ apt-get clean
 
 ENV USERNAME NOBODY
 ENV PASSWORD CHANGEME
-ENV MEGACMD mega-put
 
 COPY "entrypoint.sh" "/entrypoint.sh"
 ENTRYPOINT ["/entrypoint.sh"]
