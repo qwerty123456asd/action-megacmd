@@ -1,4 +1,33 @@
-docker run --rm --name mega-cmd -e USERNAME='email' -e PASSWORD='password' -e TARGET=$REMOTE_BACKUP \
--v 'folder to upload':/upload -v ${PWD}/logs:/root/.megaCmd thelittlefireman/docker-megacmd:latest
+# GitHub Action for MEGA
 
-you could add -e MEGACMD=sync to replace the "mega-put" command by sync
+This Action for [MEGA](https://mega.nz/) enables arbitrary actions with the `MEGAcmd` command-line client, including uploading and downloading from a remote folder.
+
+### Secrets
+
+* `USERNAME` - **Optional**. Email to a MEGA account. Required to upload.
+* `PASSWORD` - **Optional**. Password to a MEGA account. Required to upload.
+
+#### Example
+
+To download a file using MEGAcmd. In this case we are downloading a file specified by a public link, which does not require being logged in: 
+
+```hcl
+action "Download" {
+  uses = "Difegue/action-megacmd@master"
+  args = "get https://mega.nz/#F!ABcD1E2F!gHiJ23k-LMno45PqrSTUvw /path/to/local/folder "
+}
+```
+
+To upload a file using MEGAcmd:
+
+```hcl
+action "Upload" {
+  uses = "Difegue/action-megacmd@master"
+  args = "put /path/to/local/folder /exportedstuff/"
+  secrets = ["USERNAME", "PASSWORD"]
+}
+```
+## License
+
+The Dockerfile and associated scripts and documentation in this project are released under the [MIT License](LICENSE).
+
