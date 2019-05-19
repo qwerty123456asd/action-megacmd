@@ -7,7 +7,7 @@ LABEL maintainer="sugoi@cock.li"
 
 LABEL com.github.actions.name="GitHub Action for MEGA"
 LABEL com.github.actions.description="Wraps the megacmd CLI to enable interaction with MEGA."
-LABEL com.github.actions.icon="cloud-upload"
+LABEL com.github.actions.icon="upload-cloud"
 LABEL com.github.actions.color="red"
 
 RUN apt-get update && apt-get install curl gnupg2 -y && \
