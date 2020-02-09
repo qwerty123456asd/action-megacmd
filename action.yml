@@ -1,0 +1,9 @@
+name: action-megacmd
+description: Wraps the megacmd CLI to enable interaction with MEGA.
+author: Difegue
+branding:
+  color: red
+  icon: upload-cloud
+runs:
+  using: docker
+  image: Dockerfile
