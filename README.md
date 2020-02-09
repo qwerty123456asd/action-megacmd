@@ -11,21 +11,23 @@ This Action for [MEGA](https://mega.nz/) enables arbitrary actions with the `MEG
 
 To download a file using MEGAcmd. In this case we are downloading a file specified by a public link, which does not require being logged in: 
 
-```hcl
-action "Download" {
-  uses = "Difegue/action-megacmd@master"
-  args = "get https://mega.nz/#F!ABcD1E2F!gHiJ23k-LMno45PqrSTUvw /path/to/local/folder "
-}
+```yaml
+- name: Download
+        uses: Difegue/action-megacmd@master
+        with:
+          args: get https://mega.nz/#F!ABcD1E2F!gHiJ23k-LMno45PqrSTUvw /path/to/local/folder
 ```
 
 To upload a file using MEGAcmd:
 
-```hcl
-action "Upload" {
-  uses = "Difegue/action-megacmd@master"
-  args = "put /path/to/local/folder /exportedstuff/"
-  secrets = ["USERNAME", "PASSWORD"]
-}
+```yaml
+- name: Upload 
+        uses: Difegue/action-megacmd@master
+        with:
+          args: put /path/to/local/folder /exportedstuff/
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
 ```
 ## License
 
