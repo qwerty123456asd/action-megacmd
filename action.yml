@@ -1,9 +1,4 @@
-name: action-megacmd
-description: Wraps the megacmd CLI to enable interaction with MEGA.
-author: Difegue
-branding:
-  color: red
-  icon: upload-cloud
-runs:
-  using: docker
-  image: Dockerfile
+- name: Download
+        uses: Difegue/action-megacmd@master
+        with:
+          args: get https://mega.nz/#F!ABcD1E2F!gHiJ23k-LMno45PqrSTUvw /path/to/local/folder
